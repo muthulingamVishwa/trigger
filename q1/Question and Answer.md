@@ -3,12 +3,10 @@
 ## Answer
 public class prevent{
  public static void userContactrole(list<OpportunityContactRole> listcontrolrole){
-      set<id> setid=new set<id>();
-
-        for(OpportunityContactRole opp:listcontrolrole){
+ set<id> setid=new set<id>();
+ for(OpportunityContactRole opp:listcontrolrole){
                setid.add(opp.opportunityId);
-              
-}
+             }
 map<id,set<id>> mapid=new map<id,set<id>>();
 
         for(OpportunityContactRole ort: [select id,OpportunityId,ContactId From OpportunityContactRole where OpportunityId in :setId ]){
