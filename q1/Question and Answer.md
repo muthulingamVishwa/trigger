@@ -2,6 +2,22 @@
 
 ## Answer
 ```jsx
+
+
+trigger preventuser on OpportunityContactRole (before insert) {
+   
+switch on trigger.operationtype{
+
+ when Before_insert{
+     
+    prevent.userContactrole(trigger.new);
+
+     }
+}
+}
+
+
+//methods
 public class prevent{
 
  public static void userContactrole(list<OpportunityContactRole> listcontrolrole){
