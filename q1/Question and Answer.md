@@ -1,12 +1,17 @@
 #Apex trigger to prevent users from assigning contact roles to closed opportunities and to avoid assigning duplicate contact roles on the same opportunity(Asked in an interview).
 
 ## Answer
+```jsx
 public class prevent{
+
  public static void userContactrole(list<OpportunityContactRole> listcontrolrole){
- set<id> setid=new set<id>();
- for(OpportunityContactRole opp:listcontrolrole){
+
+      set<id> setid=new set<id>();
+
+        for(OpportunityContactRole opp:listcontrolrole){
                setid.add(opp.opportunityId);
-             }
+              
+}
 map<id,set<id>> mapid=new map<id,set<id>>();
 
         for(OpportunityContactRole ort: [select id,OpportunityId,ContactId From OpportunityContactRole where OpportunityId in :setId ]){
@@ -37,3 +42,4 @@ map<id,set<id>> mapid=new map<id,set<id>>();
     
 }
 }
+```
