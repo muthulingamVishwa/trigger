@@ -7,7 +7,7 @@ trigger AccountEmail on Account (before update) {
            AccountUpdate.EmailChange(trigger.newmap);
 }
 
-```jsx
+``jsx
 Public Class AccountUpdate{
 
  public Static Void EmailChange(map<id,Account> AccountMap){
