@@ -1,5 +1,6 @@
 # When an account is updated, put all related contact emails in the 'List Contact Email' field of the account.
 # Answer
+## Apex Trigger
 ```jsx
 
 trigger AccountEmail on Account (before update) {
@@ -8,6 +9,8 @@ trigger AccountEmail on Account (before update) {
 }
 
 ```
+## Apex Helper Class
+
 ```jsx
 Public Class AccountUpdate{
 
