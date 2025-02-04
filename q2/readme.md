@@ -1,4 +1,4 @@
-# When an account is updated, put all related contact emails in the 'List Contact Email' field of the account.
+# When an account is updated, put all related contact emails in the 'List Contact Email' field of the account.(Asked in an interview)
 # Answer
 ## Apex Trigger
 ```jsx
