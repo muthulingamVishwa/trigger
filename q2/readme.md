@@ -1,9 +1,13 @@
 # When an account is updated, put all related contact emails in the 'List Contact Email' field of the account.
 # Answer
 ```jsx
+
 trigger AccountEmail on Account (before update) {
-     AccountUpdate.EmailChange(trigger.newmap);
+
+           AccountUpdate.EmailChange(trigger.newmap);
 }
+
+```jsx
 Public Class AccountUpdate{
 
  public Static Void EmailChange(map<id,Account> AccountMap){
