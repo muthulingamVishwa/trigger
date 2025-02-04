@@ -7,7 +7,7 @@ trigger AccountEmail on Account (before update) {
            AccountUpdate.EmailChange(trigger.newmap);
 }
 
-```jsx
+```
 ```jsx
 Public Class AccountUpdate{
 
@@ -33,6 +33,7 @@ Public Class AccountUpdate{
              
             }
         }
-        
+
     }
+        ```
 }
