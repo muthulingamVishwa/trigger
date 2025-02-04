@@ -3,9 +3,9 @@
 ## Apex Trigger
 ```jsx
 
-trigger AccountEmail on Account (before update) {
+trigger AccountEmailupdated on Account (before update) {
 
-           AccountUpdate.EmailChange(trigger.newmap);
+           AccountUpdate.ListContactEmail(trigger.newmap);
 }
 
 ```
@@ -14,25 +14,25 @@ trigger AccountEmail on Account (before update) {
 ```jsx
 Public Class AccountUpdate{
 
- public Static Void EmailChange(map<id,Account> AccountMap){
+ public Static Void ListContactEmail(map<id,Account> AccountMap){
       
-        map<id,String> AccountEmailList=new map<id,String>();
+        map<id,String> ContactEmailList=new map<id,String>();
         
         for(Contact Clist:[select id ,AccountId,Email From Contact Where Email !=null and Accountid =:AccountMap.keyset()]){
 
-                 if(AccountEmailList.containskey(clist.AccountId)){
+                 if(ContactEmailList.containskey(clist.AccountId)){
 
-                AccountEmailList.put(clist.AccountId,AccountEmailList.get(clist.AccountId)+', '+Clist.Email);
+                ContactEmailList.put(clist.AccountId,ContactEmailList.get(clist.AccountId)+', '+Clist.Email);
             }else{
-                AccountEmailList.put(clist.AccountId,Clist.Email);
+                ContactEmailList.put(clist.AccountId,Clist.Email);
             }
         }
         
         for(Account acc:Accountmap.values()){
 
-            if(AccountEmailList.containskey(acc.Id)){
+            if(ContactEmailList.containskey(acc.Id)){
 
-                acc.Contact_Email_List__c=AccountEmailList.get(acc.Id);
+                acc.Contact_Email_List__c=ContactEmailList.get(acc.Id);
              
             }
         }
